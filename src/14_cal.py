@@ -22,3 +22,47 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+# Create the program.
+
+def return_cal():
+  
+  # Create a variable to define the arguments inputted.
+  # sys.argv returns a list.
+  
+  input = sys.argv
+
+  # If no arguments specified, print a calendar for the current month.
+  
+  if len(input) == 1:
+    y = datetime.now().year
+    m = datetime.now().month
+    print(calendar.month(y, m))
+  
+  # If one argument specified, assume month was passed 
+  # and return the calendar for that month and the current year.
+
+  elif len(input) == 2:
+    y = datetime.now().year
+    m = int(input[1])
+    print(calendar.month(y, m))
+
+  # If two arguments specified, assume they passed both the month and year
+  # and return the calendar for that month and year.
+
+  elif len(input) == 3:
+    y = int(input[2])
+    m = int(input[1])
+    print(calendar.month(y, m))
+
+  # Else print a statement that indicates the format your program expects
+  # arguments to be given. Then exit the program.
+
+  else:
+    print("Please only input one number to indicate month followed by the desired year.")
+    exit()
+
+# Execute the code in the file.
+
+if __name__ == "__main__":
+  return_cal()
